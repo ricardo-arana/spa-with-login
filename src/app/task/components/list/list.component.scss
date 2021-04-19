@@ -1,0 +1,25 @@
+@import "~_variables.scss";
+
+    .mat-list-item:hover {  
+        background-color: $accent;
+
+        button {
+            display: block !important;
+        }
+    }
+
+.mat-list-item {
+    display: flex;
+    
+}
+
+
+.button-clear {
+    display: none;
+}
+
+:host ::ng-deep .mat-list-item-content {
+    width: 100% !important;
+    justify-content: space-between;
+}
+

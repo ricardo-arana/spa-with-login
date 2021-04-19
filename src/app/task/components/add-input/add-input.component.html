@@ -1,0 +1,13 @@
+<form [formGroup]="forma">
+<div class="row">
+    <div class="col">
+        <mat-form-field class="full-width" appearance="outline" [style.fontSize.px]="24" [class.spinner]="loading">
+           
+            <input matInput placeholder="Tenemos algo  pendiente?" formControlName="descripcion" (keyup.enter)="agregarTarea()"
+            
+           />
+            
+          </mat-form-field>
+    </div>
+</div>
+</form>

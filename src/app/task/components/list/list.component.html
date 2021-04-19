@@ -1,0 +1,12 @@
+<ngx-skeleton-loader *ngIf="loading"  count="10"></ngx-skeleton-loader>
+
+<mat-list *ngIf="!loading"  role="list">
+    
+    <mat-list-item *ngFor="let tarea of tareas" role="listitem">
+        <mat-checkbox  [checked]="tarea.done" (change)="actualizarTarea(tarea)" >{{ tarea.descripcion }}</mat-checkbox>
+        <button (click)="borrarTarea(tarea)" mat-icon-button class="button-clear">
+            <mat-icon>clear</mat-icon>
+          </button> 
+    </mat-list-item>
+
+  </mat-list>

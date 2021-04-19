@@ -1,0 +1,83 @@
+<div fxLayout="row" fxLayoutAlign="center center" style="padding-top: 8vh;">
+<div fxFlex.lg="50" fxFlex.md="70" fxFlex.sm="80" fxFlex.xs="90">
+<form [formGroup]="userForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header style="justify-content: center;">
+      <div style="text-align: center;">
+        <mat-icon>account_circle</mat-icon>
+        <mat-card-title>
+       Registro </mat-card-title>
+      </div>
+      
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="nombre" formControlName="nombre">
+            <mat-error *ngIf="userForm.controls['nombre'].hasError('required')">
+              El nombre es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput placeholder="email" formControlName="email">
+            <mat-error *ngIf="userForm.controls['email'].hasError('required')">
+              El correo es <strong>requerido</strong>
+            </mat-error>
+            <mat-error *ngIf="userForm.controls['email'].hasError('email') || userForm.controls['email'].hasError('pattern')">
+              El formato del correo es <strong>invalido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input matInput placeholder="password" formControlName="password" type="password">
+            <mat-error *ngIf="userForm.controls['password'].hasError('required')">
+              El password es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+     
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Confirmar contraseña</mat-label>
+            <input matInput placeholder="password" formControlName="password2" type="password">
+            <mat-error *ngIf="userForm.controls['password2'].hasError('required')">
+              El password es <strong>requerido</strong>
+            </mat-error>
+            <mat-error *ngIf="userForm.controls['password2'].hasError('notSame')">
+              Hay diferencia entre las <strong>constraseñas</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <ngx-recaptcha2 #captchaElem [siteKey]="sitekey"  formControlName="recaptcha"></ngx-recaptcha2>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <button mat-raised-button color="primary" type="submit">Registrar</button>
+      </div>
+    </mat-card-actions>
+    <div style="text-align: end;">
+      <a [routerLink]="['/auth/login']">ya tengo una cuenta</a>
+    </div>
+  </mat-card>
+</form>
+</div>
+</div>

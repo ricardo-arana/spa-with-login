@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  sitekey: '6LfCGR4aAAAAAHT6DmKV1pSW4ITStbYp-FRRDfTe',
+  apis: {
+    myback: {
+      baseurl: 'http://localhost:3000/api',
+      endpoints: {
+        usuarios: '/usuarios',
+        login: '/auth/login',
+        validar: '/auth/validar',
+        crearTarea: '/tareas/add',
+        obtenerTareas: '/tareas'
+      }
+    }
+  }
 };
 
 /*
